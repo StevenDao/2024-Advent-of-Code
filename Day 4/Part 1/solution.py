@@ -1,7 +1,9 @@
+import pathlib
+
 def getInput():
-  inputFile = "input5.txt"
+  inputFile = "input.txt"
   fileContents = []
-  with open(inputFile) as f:
+  with open(pathlib.Path(__file__).parent.resolve().joinpath(inputFile)) as f:
     for line in f:
       fileContents.append(list(line))
   f.close()
@@ -56,7 +58,6 @@ def searchXmas(window, gX, gY, seent):
       seent[seentKey] = maybe
 
 input = getInput()
-count = 0
 seent = {}
 for y, row in enumerate(input):
   if len(input) - 4 < y:
